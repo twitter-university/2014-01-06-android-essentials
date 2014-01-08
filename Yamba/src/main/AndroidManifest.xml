@@ -1,22 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.twitter.university.android.yamba" >
+          package="com.twitter.university.android.yamba">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.twitter.university.android.yamba.permission.NEW_TWEET_NOTICE" />
+
+    <permission
+            android:name="com.twitter.university.android.yamba.permission.NEW_TWEET_NOTICE"
+            android:label="Detect new tweets"
+            android:protectionLevel="signature"/>
+
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
         <activity
-            android:name="TweetActivity"
-            android:label="@string/app_name" >
+                android:name="com.twitter.university.android.yamba.TweetActivity"
+                android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <service
+                android:name="com.twitter.university.android.yamba.TweetService"
+                android:enabled="true"
+                android:exported="false">
+        </service>
+
+        <receiver
+                android:name="com.twitter.university.android.yamba.TweetStatusReceiver"
+                android:enabled="true"
+                android:permission="com.twitter.university.android.yamba.permission.NEW_TWEET_NOTICE"
+                >
+            <intent-filter>
+                <action android:name="com.twitter.university.android.ACTION_TWEET_STATUS"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
