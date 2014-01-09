@@ -31,5 +31,6 @@ android {
 }
 
 dependencies {
+    compile 'com.android.support:support-v4:+'
     compile files('libs/yambaclientlib.jar')
 }

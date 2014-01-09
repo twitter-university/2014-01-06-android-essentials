@@ -6,6 +6,9 @@
     <string name="activity_tweet_title">New Tweet</string>
     <string name="button_tweet_text">Tweet</string>
     <string name="post_tweet_success">Successfully posted tweet</string>
-    <string name="post_tweet_fail">Failed to post tweet</string><string name="edit_tweet_hint">What\'s happening?</string>
+    <string name="post_tweet_fail">Failed to post tweet</string>
+    <string name="edit_tweet_hint">What\'s happening?</string>
+    <string name="menu_item_tweet_text">New Tweet</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
